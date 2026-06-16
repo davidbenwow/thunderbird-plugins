@@ -20,6 +20,9 @@
     .wrap { max-width:720px; margin:0 auto; padding:56px 20px 64px; }
     header { text-align:center; margin-bottom:40px; }
     .brand { display:block; height:38px; width:auto; margin:0 auto 22px; }
+    .title-lockup { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px; }
+    .tb-logo { width:44px; height:44px; flex:0 0 auto; }
+    .title-lockup h1 { margin:0; }
     h1 { font-size:30px; margin:0 0 8px; letter-spacing:-0.4px; }
     .sub { color:var(--ink-500); font-size:16px; margin:0 auto; max-width:520px; }
 
@@ -55,7 +58,10 @@
   <div class="wrap">
     <header>
       <img class="brand" src="omniscriptum-logo.png" alt="OmniScriptum">
-      <h1>Thunderbird plugins</h1>
+      <div class="title-lockup">
+        <img class="tb-logo" src="thunderbird-logo.svg" alt="Thunderbird">
+        <h1>Thunderbird plugins</h1>
+      </div>
       <p class="sub">Internal tools for OmniScriptum.
         Pick a plugin to install — once it's in, updates are automatic.</p>
     </header>
