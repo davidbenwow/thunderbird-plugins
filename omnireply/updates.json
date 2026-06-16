@@ -1,0 +1,14 @@
+{
+  "addons": {
+    "omnireply@omniscriptum.com": {
+      "updates": [
+        {
+          "version": "4.0.164",
+          "update_link": "https://thunderbird.omniscriptum.it/omnireply/omnireply-4.0.164.xpi",
+          "update_hash": "sha256:b5165f40e0a44f3345622489a22d9f561734e9445026c99bef8b3b9d1efad32d",
+          "applications": { "gecko": { "strict_min_version": "140.0" } }
+        }
+      ]
+    }
+  }
+}

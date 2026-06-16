@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Install OmniReply for Thunderbird</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #f7f8fb;
+        --panel: #ffffff;
+        --panel-soft: #f1f4f8;
+        --text: #161b22;
+        --muted: #5d6775;
+        --border: #d9dee7;
+        --border-strong: #b7c0cc;
+        --accent: #b8431f;
+        --accent-hover: #963516;
+        --accent-soft: #fff0e9;
+        --warning: #8a5200;
+        --warning-soft: #fff8e8;
+        --success: #127a4b;
+        --success-soft: #eaf8f0;
+        --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--background);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .page {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .brand-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .brand-logo {
+        display: block;
+        width: min(230px, 56vw);
+        height: auto;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+        gap: 20px;
+        align-items: stretch;
+        margin-bottom: 20px;
+      }
+
+      .card,
+      .hero-main,
+      .quick-card,
+      .note,
+      .step,
+      .screenshot {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .hero-main {
+        padding: clamp(28px, 5vw, 50px);
+        box-shadow: var(--shadow);
+      }
+
+      .quick-card,
+      .card {
+        padding: 22px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      h1 {
+        max-width: 760px;
+        font-size: clamp(2.25rem, 6.5vw, 4rem);
+        letter-spacing: 0;
+      }
+
+      h2 {
+        font-size: 1.45rem;
+      }
+
+      h3 {
+        font-size: 1.05rem;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .lede {
+        margin-top: 16px;
+        max-width: 680px;
+        font-size: 1.08rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background: var(--accent-hover);
+        color: #ffffff;
+      }
+
+      .button.secondary {
+        background: var(--panel);
+        border-color: var(--border-strong);
+        color: var(--text);
+      }
+
+      .button.secondary:hover {
+        background: var(--panel-soft);
+      }
+
+      .quick-list,
+      .need-list {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .quick-list li,
+      .need-list li {
+        display: grid;
+        grid-template-columns: 22px minmax(0, 1fr);
+        gap: 10px;
+        color: var(--muted);
+      }
+
+      .check {
+        display: inline-grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--success-soft);
+        color: var(--success);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .meta {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .note {
+        margin: 0 0 20px;
+        padding: 15px 16px;
+        background: var(--warning-soft);
+        border-color: #edd29a;
+        color: var(--warning);
+      }
+
+      .note strong {
+        color: var(--text);
+      }
+
+      .guide {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 20px;
+        align-items: start;
+      }
+
+      .sticky-summary {
+        position: sticky;
+        top: 20px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .setup-steps {
+        display: grid;
+        gap: 14px;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .step-body {
+        display: grid;
+        gap: 10px;
+      }
+
+      .step-body ul {
+        margin: 0;
+        padding-left: 19px;
+        color: var(--muted);
+      }
+
+      .step-body li + li {
+        margin-top: 5px;
+      }
+
+      code {
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--panel-soft);
+        padding: 2px 6px;
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.92em;
+      }
+
+      .screenshot-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .screenshot {
+        margin: 0;
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .screenshot.compact {
+        max-width: 390px;
+      }
+
+      .screenshot.wide {
+        max-width: 100%;
+      }
+
+      .screenshot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .caption {
+        margin: 0;
+        padding: 8px 10px;
+        border-top: 1px solid var(--border);
+        background: var(--panel-soft);
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .final-card {
+        margin-top: 20px;
+      }
+
+      .footer {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .guide {
+          grid-template-columns: 1fr;
+        }
+
+        .sticky-summary {
+          position: static;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page {
+          width: min(100% - 20px, 1080px);
+          padding-top: 18px;
+        }
+
+        .hero-main,
+        .quick-card,
+        .card,
+        .step {
+          padding: 16px;
+        }
+
+        .step {
+          grid-template-columns: 1fr;
+        }
+
+        .screenshot-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="brand-header" aria-label="OmniScriptum">
+        <img class="brand-logo" src="./images/omniscriptum-logo-stifte-1c.png" alt="OmniScriptum">
+        <a class="button secondary" href="../">All Thunderbird tools</a>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-main">
+          <p class="eyebrow">Thunderbird extension</p>
+          <h1 id="page-title">Install OmniReply</h1>
+          <p class="lede">
+            A quick setup guide for editors. Download the extension, install it in Thunderbird, then connect it with your V4 API key and Cover Playground link.
+          </p>
+
+          <div class="actions">
+            <a class="button" href="./omnireply-latest.xpi">Download OmniReply</a>
+            <a class="button secondary" href="#setup">Start setup</a>
+          </div>
+
+          <p class="meta">
+            Latest version: <strong>4.0.164</strong>. Versioned file:
+            <a href="./omnireply-4.0.164.xpi">omnireply-4.0.164.xpi</a>.
+          </p>
+        </div>
+
+        <aside class="quick-card" aria-label="What you need before setup">
+          <h2>Before you begin</h2>
+          <ul class="quick-list">
+            <li><span class="check">1</span><span>Thunderbird 140 or newer</span></li>
+            <li><span class="check">2</span><span>Your V4 API key from the V4 account page</span></li>
+            <li><span class="check">3</span><span>Your personal Cover Playground link for each imprint account</span></li>
+            <li><span class="check">4</span><span>About 5 minutes for first-time setup</span></li>
+          </ul>
+        </aside>
+      </section>
+
+      <p class="note">
+        <strong>Internal build:</strong> only install this XPI if you received this page from OmniScriptum. The download button always points to the newest published package.
+      </p>
+
+      <p class="note">
+        <strong>New API key required:</strong> the shared V4 API key has been rotated. Use the <strong>new</strong> key when you activate OmniReply in step&nbsp;6 — the old key will stop working. If you don’t have the new key yet, ask your OmniScriptum contact.
+      </p>
+
+      <div class="guide" id="setup">
+        <aside class="sticky-summary">
+          <section class="card">
+            <h2>Setup overview</h2>
+            <ul class="need-list">
+              <li><span class="check">✓</span><span>Download the XPI file</span></li>
+              <li><span class="check">✓</span><span>Copy your V4 API key</span></li>
+              <li><span class="check">✓</span><span>Allow this internal add-on in Thunderbird</span></li>
+              <li><span class="check">✓</span><span>Install the XPI file</span></li>
+              <li><span class="check">✓</span><span>Paste your API key and Cover Playground links</span></li>
+            </ul>
+          </section>
+        </aside>
+
+        <section class="setup-steps" aria-label="Installation steps">
+          <article class="step">
+            <span class="step-number">1</span>
+            <div class="step-body">
+              <h3>Download the extension file</h3>
+              <p>Click <strong>Download OmniReply</strong>. Keep the downloaded XPI file available for the install step.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-number">2</span>
+            <div class="step-body">
+              <h3>Copy your V4 API key</h3>
+              <p>Open <a href="https://v4.vdm-vsg.de/">v4.vdm-vsg.de</a>, go to <strong>Account</strong>, and copy the API key below your signatures.</p>
+              <figure class="screenshot compact">
+                <img src="./images/v4-api-key.png" alt="V4 account page showing the API key below the signature area.">
+                <figcaption class="caption">The key is on the Account page, just below the signature area.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-number">3</span>
+            <div class="step-body">
+              <h3>Open Thunderbird settings</h3>
+              <ul>
+                <li>In Thunderbird, open <strong>Thunderbird</strong> → <strong>Settings</strong>.</li>
+                <li>Choose <strong>General</strong>.</li>
+                <li>Scroll all the way down and click <strong>Config Editor</strong>.</li>
+              </ul>
+              <div class="screenshot-grid">
+                <figure class="screenshot">
+                  <img src="./images/thunderbird-settings-menu.png" alt="Thunderbird application menu with Settings highlighted.">
+                  <figcaption class="caption">Open Thunderbird Settings.</figcaption>
+                </figure>
+                <figure class="screenshot">
+                  <img src="./images/general-config-editor.png" alt="Thunderbird General settings page showing the Config Editor button.">
+                  <figcaption class="caption">In General, scroll down to Config Editor.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-number">4</span>
+            <div class="step-body">
+              <h3>Allow the internal XPI</h3>
+              <ul>
+                <li>Search for <code>xpinstall.signatures.required</code>.</li>
+                <li>Make sure it is set to <strong>false</strong>.</li>
+                <li>If it is <strong>true</strong>, double-click the row to change it to <strong>false</strong>.</li>
+              </ul>
+              <p class="note">Only change this setting for the internal OmniReply XPI installation. Do not install add-ons from unknown sources.</p>
+              <figure class="screenshot wide">
+                <img src="./images/xpinstall-signatures-required.png" alt="Thunderbird Advanced Preferences showing xpinstall.signatures.required set to false.">
+                <figcaption class="caption">This value must show <strong>false</strong>.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-number">5</span>
+            <div class="step-body">
+              <h3>Install the XPI file</h3>
+              <ul>
+                <li>Open <strong>Tools</strong> → <strong>Add-ons and Themes</strong>.</li>
+                <li>Click the settings gear.</li>
+                <li>Choose <strong>Install Add-on From File...</strong>.</li>
+                <li>Select the XPI file you downloaded.</li>
+              </ul>
+              <div class="screenshot-grid">
+                <figure class="screenshot">
+                  <img src="./images/tools-addons-themes.png" alt="Thunderbird Tools menu with Add-ons and Themes highlighted.">
+                  <figcaption class="caption">Open Add-ons and Themes.</figcaption>
+                </figure>
+                <figure class="screenshot">
+                  <img src="./images/install-addon-from-file.png" alt="Add-ons settings gear menu with Install Add-on From File highlighted.">
+                  <figcaption class="caption">Use the gear menu to install the XPI file.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-number">6</span>
+            <div class="step-body">
+              <h3>Activate OmniReply</h3>
+              <p>Open OmniReply settings, paste your V4 API key, and click <strong>Test connection</strong>. The status should show <strong>Ready</strong>.</p>
+              <figure class="screenshot wide">
+                <img src="./images/activate-api-key.png" alt="OmniReply settings page with V4 API key field and Test connection button.">
+                <figcaption class="caption">Paste the V4 API key and test the connection.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-number">7</span>
+            <div class="step-body">
+              <h3>Add your Cover Playground links</h3>
+              <p>Paste your personal Cover Playground link for each recognized imprint account. OmniReply uses these links when a reply should include your submission link.</p>
+              <figure class="screenshot wide">
+                <img src="./images/cover-playground-links.png" alt="OmniReply Personal Cover Playground Links settings with link fields for imprint accounts.">
+                <figcaption class="caption">Add one personal link for each recognized imprint account.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+        </section>
+      </div>
+
+      <section class="card final-card">
+        <h2>After setup</h2>
+        <p>Open an email in Thunderbird and click <strong>OmniReply</strong>. Read the generated answer before using it, especially when the reply contains links, names, prices, or imprint-specific information.</p>
+      </section>
+
+      <p class="footer">
+        Thunderbird update manifest: <a href="./updates.json">updates.json</a>. Stable download: <a href="./omnireply-latest.xpi">omnireply-latest.xpi</a>.
+      </p>
+    </main>
+  </body>
+</html>
