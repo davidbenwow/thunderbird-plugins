@@ -1,6 +1,6 @@
 # Editor hub design
 
-Use the Ink and apricot palette from OmniReply Admin. The shared stylesheet in `assets/hub-theme.*.css` covers the hub and both installation pages.
+Use the Ink and apricot palette from **OMNI**Reply Admin. The shared stylesheet in `assets/hub-theme.*.css` covers the hub and both installation pages.
 
 Keep logo artwork unchanged. Orange is reserved for the original plugin logo artwork. Use cream page backgrounds, white cards, 12px card corners, 8px controls, hairline neutral borders, and ink primary actions. Hub choices use outlined actions; each installation page has one filled download action. Body links use the accent text token, chrome uses secondary text, and keyboard focus uses the double ring. Text on tinted panels is primary or accent, with semantic colors for status messages. Keep the theme light.
 
@@ -8,4 +8,6 @@ When editing the stylesheet, give it a new content-hash filename and update all 
 
 Place the original Thunderbird logo immediately left of the hub title, 36px square with a 12px gap and no background tile. Keep its official colors.
 
-Use the supplied full-name OmniReply wordmark in its installation-page hero, with its original proportions and transparency. Keep the circular icon and plain product name in compact hub cards.
+Use the supplied full-name **OMNI**Reply wordmark in its installation-page hero, with its original proportions and transparency. Keep the circular icon and plain product name in compact hub cards.
+
+Write the product as **OMNI**Reply in rich text (only OMNI is bold), and OMNIReply in plain-text titles and labels. Keep identifiers, file paths, URLs and logo artwork unchanged.
