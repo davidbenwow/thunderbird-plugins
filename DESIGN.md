@@ -7,3 +7,5 @@ Keep logo artwork unchanged. Orange is reserved for the original plugin logo art
 When editing the stylesheet, give it a new content-hash filename and update all three HTML references to bust caches. Keep old hashed assets available for cached pages. Preserve package links, update feeds, and installation instructions when making visual changes.
 
 Place the original Thunderbird logo immediately left of the hub title, 36px square with a 12px gap and no background tile. Keep its official colors.
+
+Use the supplied full-name OmniReply wordmark in its installation-page hero, with its original proportions and transparency. Keep the circular icon and plain product name in compact hub cards.
