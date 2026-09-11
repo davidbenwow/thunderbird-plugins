@@ -1,0 +1,157 @@
+/* Ink and apricot — shared by the editor hub and installation pages. */
+:root {
+  color-scheme: light;
+  --brand-orange: #E8622A;
+  --page-bg: #F7F5F2;
+  --surface: #FFFFFF;
+  --surface-muted: #F1EDE7;
+  --surface-tint: #FBF7F2;
+  --border: #E6E1DA;
+  --border-strong: #D6CFC6;
+  --border-accent: #F0C9AE;
+  --text-primary: #1F1B18;
+  --text-secondary: #6B645D;
+  --text-muted: #9A928A;
+  --text-accent: #9A4A22;
+  --primary: #2B2622;
+  --primary-hover: #3D3631;
+  --primary-active: #1F1B18;
+  --on-primary: #FFFFFF;
+  --secondary-bg: #FFFFFF;
+  --secondary-border: #D6CFC6;
+  --secondary-text: #2B2622;
+  --secondary-hover-bg: #F7F5F2;
+  --selected-bg: #FBEFE6;
+  --selected-border: #F0C9AE;
+  --selected-text: #9A4A22;
+  --success-bg: #E8F3EC;
+  --success-text: #2E7D57;
+  --warning-bg: #FBF3E6;
+  --warning-text: #8F5719;
+  --danger-bg: #FCEBEB;
+  --danger-text: #A32D2D;
+  --focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px #9A4A22;
+  --radius-control: 8px;
+  --radius-card: 12px;
+
+
+  --background: var(--page-bg);
+  --panel: var(--surface);
+  --panel-soft: var(--surface-tint);
+  --text: var(--text-primary);
+  --muted: var(--text-secondary);
+  --accent: var(--text-accent);
+  --accent-hover: var(--text-accent);
+  --accent-soft: var(--surface-muted);
+  --warning: var(--warning-text);
+  --warning-soft: var(--warning-bg);
+  --success: var(--success-text);
+  --success-soft: var(--success-bg);
+  --shadow: 0 2px 6px #1F1B1806;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { color: var(--text-primary); line-height: 1.2; letter-spacing: -.025em; }
+a { color: var(--text-accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
+}
+input[type="checkbox"], input[type="radio"] { accent-color: var(--primary); }
+.wrap { width: min(880px, 100% - 48px); margin: 0 auto; padding: 40px 0 48px; }
+.hub-brand { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.hub-brand img { display: block; width: auto; height: 22px; max-width: 65%; object-fit: contain; }
+.hub-brand span { color: var(--text-secondary); font-size: 12px; }
+.hub-heading { padding: 48px 0 32px; }
+.eyebrow { color: var(--text-muted); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 12px; }
+.hub-heading h1 { font-size: clamp(28px, 4vw, 36px); font-weight: 600; margin: 0 0 12px; }
+.hub-heading .sub { max-width: 560px; margin: 0; color: var(--text-secondary); font-size: 15px; }
+.plugin-list { display: grid; gap: 16px; }
+.plugin-card { display: grid; grid-template-columns: 56px minmax(0,1fr) auto; align-items: center; gap: 20px; padding: 26px; background: var(--surface); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-card); transition: border-color .15s ease; }
+.plugin-card:hover { text-decoration: none; border-color: var(--border-strong); }
+.plugin-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius-card); background: var(--surface-muted); color: var(--text-primary); }
+.plugin-icon svg { width: 28px; height: 28px; }
+.plugin-icon.omnireply { background: transparent; }
+.plugin-icon img { width: 56px; height: 56px; object-fit: contain; border-radius: 50%; }
+.plugin-card h2 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.plugin-card p { margin: 0; max-width: 490px; color: var(--text-secondary); font-size: 14px; }
+.install-link { justify-self: end; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 8px 12px; border: 1px solid var(--secondary-border); border-radius: var(--radius-control); color: var(--secondary-text); background: var(--secondary-bg); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.plugin-card:hover .install-link { background: var(--secondary-hover-bg); }
+.hub-note { margin: 24px 0 0; font-size: 13px; line-height: 1.7; color: var(--text-secondary); }
+.hub-footer { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px; color: var(--text-secondary); font-size: 12px; line-height: 1.8; }
+.hub-footer strong { font-weight: 500; }
+
+/* Installation guides keep their existing instructions and download behavior. */
+.install-page .wrap { max-width: 720px; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 8px 12px; margin-bottom: 32px; background: var(--secondary-bg); border: 1px solid var(--secondary-border); border-radius: var(--radius-control); color: var(--text-secondary); font-size: 12px; font-weight: 500; }
+.back-link:hover { text-decoration: none; background: var(--secondary-hover-bg); color: var(--text-primary); }
+.install-page .hero { text-align: center; }
+.install-page .logo-tile { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: var(--radius-card); background: var(--surface-muted); color: var(--text-primary); }
+.install-page .logo-tile svg { width: 36px; height: 36px; }
+.install-page .logo-tile.omnireply { background: transparent; }
+.install-page .logo-tile img { width: 72px; height: 72px; object-fit: contain; border-radius: 50%; }
+.install-page h1 { font-size: 30px; font-weight: 600; margin: 20px 0 10px; }
+.tagline { color: var(--text-secondary); font-size: 15px; margin: 0 auto 24px; max-width: 550px; }
+.dl-btn, .legacy-install .button:not(.secondary) { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 12px 22px; background: var(--primary); color: var(--on-primary); border: 1px solid var(--primary); border-radius: var(--radius-control); font-size: 14px; font-weight: 600; transition: background .15s ease; }
+.dl-btn:hover, .legacy-install .button:not(.secondary):hover { background: var(--primary-hover); border-color: var(--primary-hover); color: var(--on-primary); text-decoration: none; }
+.dl-btn:active, .legacy-install .button:not(.secondary):active { background: var(--primary-active); border-color: var(--primary-active); }
+.ver { margin-top: 14px; font-size: 12px; color: var(--text-secondary); }
+.save-note { margin-top: 6px; font-size: 12px; color: var(--text-secondary); }
+.section-title { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin: 42px 0 16px; }
+.install-page .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 22px; margin-bottom: 16px; }
+.step-head { display: flex; align-items: baseline; gap: 12px; }
+.step-num, .legacy-install .step-number { flex: 0 0 auto; width: 28px; height: 28px; border-radius: var(--radius-control); background: var(--surface-muted); color: var(--text-primary); font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; align-self: flex-start; }
+.install-page .step h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.install-page .step p { margin: 8px 0 0; color: var(--text-primary); font-size: 14px; }
+.install-page .step p.sub { color: var(--text-secondary); font-size: 13px; }
+.install-page .step-body { padding-left: 40px; }
+.install-page .step ol, .install-page .step ul { margin: 10px 0 0; padding-left: 20px; color: var(--text-primary); font-size: 14px; }
+.install-page .step li { margin: 6px 0; }
+.step code, .step kbd { background: var(--surface-muted); border-radius: 4px; padding: 2px 6px; font-size: .9em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text-primary); overflow-wrap: anywhere; }
+.callout { margin-top: 12px; font-size: 13px; color: var(--text-accent); background: var(--surface-tint); border: 1px solid var(--border); border-radius: var(--radius-control); padding: 10px 12px; }
+.shots { margin-top: 16px; display: flex; flex-direction: column; gap: 16px; }
+figure.shot { margin: 0; }
+.shot-img { width: auto; max-width: 100%; height: auto; border-radius: var(--radius-card); border: 1px solid var(--border); display: block; }
+figure.shot figcaption { margin-top: 8px; font-size: 12px; color: var(--text-secondary); }
+.shot-ph { display: none; }
+.shot.missing .shot-img { display: none; }
+.shot.missing .shot-ph { display: flex; align-items: center; justify-content: center; min-height: 110px; border: 1px dashed var(--border-strong); border-radius: var(--radius-card); color: var(--text-primary); font-size: 13px; background: var(--surface-tint); text-align: center; padding: 16px; }
+.auto { margin-top: 28px; background: var(--success-bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 18px 20px; color: var(--success-text); font-size: 14px; }
+.auto strong { color: var(--success-text); }
+.install-page footer { margin-top: 36px; text-align: center; color: var(--text-secondary); font-size: 12px; }
+footer a, .footer a { color: var(--text-secondary); }
+.legacy-install .card, .legacy-install .hero-main, .legacy-install .quick-card, .legacy-install .note, .legacy-install .step, .legacy-install .screenshot { border-radius: var(--radius-card); border-color: var(--border); }
+.legacy-install .caption { color: var(--text-primary); }
+.legacy-install .button.secondary { background: var(--secondary-bg); border: 1px solid var(--secondary-border); color: var(--secondary-text); font-weight: 500; }
+.legacy-install .button.secondary:hover { background: var(--secondary-hover-bg); text-decoration: none; }
+.legacy-install .eyebrow { color: var(--text-muted); }
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 32px); padding-top: 24px; }
+  .hub-brand { gap: 12px; padding-bottom: 20px; }
+  .hub-brand img { height: 18px; }
+  .hub-brand span { font-size: 11px; }
+  .hub-heading { padding: 32px 0 24px; }
+  .plugin-card { grid-template-columns: 48px minmax(0,1fr); gap: 16px; padding: 20px; }
+  .plugin-icon, .plugin-icon img { width: 48px; height: 48px; }
+  .install-link { grid-column: 2; justify-self: start; }
+  .plugin-card h2 { font-size: 17px; }
+  .plugin-card p { font-size: 13px; }
+  .install-page .step { padding: 18px; }
+  .install-page .step-body { padding-left: 0; }
+  .install-page h1 { font-size: 28px; }
+  .legacy-install .brand-header { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}

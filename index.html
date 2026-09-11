@@ -7,107 +7,46 @@
   <link rel="icon" type="image/svg+xml" href="thunderbird-logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" href="favicon.ico" sizes="any">
-  <style>
-    :root {
-      --ink-900:#0f1729; --ink-700:#2b3547; --ink-500:#5a6578; --ink-400:#8592a6;
-      --ink-200:#dfe4ec; --ink-100:#eef1f6; --ink-50:#f7f9fc; --surface:#fff;
-      --brand-500:#e7741b; --brand-600:#cf6516; --brand-100:#fdf1e6;
-      --blue-500:#0ea5e9; --blue-100:#e6f4fc;
-    }
-    * { box-sizing:border-box; }
-    body {
-      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
-      color:var(--ink-900); background:var(--ink-50); line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-    }
-    .wrap { max-width:720px; margin:0 auto; padding:56px 20px 64px; }
-    header { text-align:center; margin-bottom:40px; }
-    .brand { display:block; height:19px; width:auto; margin:0 auto 22px; }
-    .title-lockup { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px; }
-    .tb-logo { width:44px; height:44px; flex:0 0 auto; }
-    .title-lockup h1 { margin:0; }
-    h1 { font-size:30px; margin:0 0 8px; letter-spacing:-0.4px; }
-    .sub { color:var(--ink-500); font-size:16px; margin:0 auto; max-width:520px; }
-
-    .card {
-      display:flex; align-items:center; gap:18px; text-decoration:none; color:inherit;
-      background:var(--surface); border:1px solid var(--ink-200); border-radius:16px;
-      padding:22px 24px; margin-bottom:16px; transition:border-color .15s, transform .05s;
-    }
-    .card:hover { border-color:var(--ink-400); }
-    .card:active { transform:scale(.995); }
-    .tile {
-      flex:0 0 auto; width:56px; height:56px; border-radius:14px;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .tile svg { width:30px; height:30px; }
-    .tile.v4 { background:var(--brand-100); }
-    .tile.or { background:var(--blue-100); }
-    .card-text { flex:1; min-width:0; }
-    .card-text h2 { margin:0; font-size:19px; letter-spacing:-0.2px; }
-    .card-text p { margin:4px 0 0; color:var(--ink-500); font-size:14px; }
-    .go {
-      flex:0 0 auto; display:inline-flex; align-items:center; gap:6px;
-      color:var(--brand-600); font-weight:600; font-size:14px; white-space:nowrap;
-    }
-    .note {
-      margin-top:28px; font-size:13px; color:var(--ink-400); text-align:center; line-height:1.6;
-    }
-    footer { margin-top:40px; text-align:center; color:var(--ink-400); font-size:12px; line-height:1.7; }
-    footer .org { color:var(--ink-500); font-weight:500; }
-  </style>
+  <link rel="stylesheet" href="assets/hub-theme.6a2f766d2d0b.css">
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <img class="brand" src="omniscriptum-logo.png" alt="OmniScriptum">
-      <div class="title-lockup">
-        <img class="tb-logo" src="thunderbird-logo.svg" alt="Thunderbird">
-        <h1>Thunderbird plugins</h1>
-      </div>
-      <p class="sub">Internal tools for OmniScriptum.
-        Pick a plugin to install — once it's in, updates are automatic.</p>
+<body class="hub-page">
+  <main class="wrap">
+    <header class="hub-brand">
+      <img src="omniscriptum-logo.png" alt="OmniScriptum">
+      <span>Editor tools</span>
     </header>
-
-    <a class="card" href="v4-contacts/">
-      <span class="tile v4" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#cf6516" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/>
-          <path d="m16 19 2 2 4-4"/>
-        </svg>
-      </span>
-      <span class="card-text">
-        <h2>V4 Contacts Checker</h2>
-        <p>Checks whether email addresses are already leads in V4 Contacts and shows each lead's live status and next action.</p>
-      </span>
-      <span class="go">Install &rarr;</span>
-    </a>
-
-    <a class="card" href="install-omnireply/">
-      <span class="tile or" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/>
-          <path d="m10 8-3 3 3 3"/><path d="M17 14v-1a2 2 0 0 0-2-2H7"/>
-        </svg>
-      </span>
-      <span class="card-text">
-        <h2>OmniReply</h2>
-        <p>Generates email replies with AI.</p>
-      </span>
-      <span class="go">Install &rarr;</span>
-    </a>
-
-    <p class="note">Both are internal (unsigned) add-ons — each plugin's page has the one-time
-      setup steps, including allowing internal add-ons in Thunderbird.</p>
-
-    <footer>
-      <span class="org">OmniScriptum S.R.L.</span><br>
-      120 High Road, East Finchley<br>
-      London, N2 9ED<br>
-      United Kingdom
+    <section class="hub-heading" aria-labelledby="hub-title">
+      <p class="eyebrow">OmniScriptum workspace</p>
+      <h1 id="hub-title">Thunderbird plugins</h1>
+      <p class="sub">Internal tools for OmniScriptum editors. Choose a plugin to download and set up in Thunderbird.</p>
+    </section>
+    <nav class="plugin-list" aria-label="Available plugins">
+      <a class="plugin-card" href="install-omnireply/">
+        <span class="plugin-icon omnireply" aria-hidden="true"><img src="assets/omnireply-logo.b0ebcc141f29.png" alt="" width="56" height="56"></span>
+        <div>
+          <h2>OmniReply</h2>
+          <p>Draft email replies with AI, connected to your V4 account.</p>
+        </div>
+        <span class="install-link">Install &amp; setup <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="plugin-card" href="v4-contacts/">
+        <span class="plugin-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="m16 19 2 2 4-4"/>
+          </svg>
+        </span>
+        <div>
+          <h2>V4 Contacts Checker</h2>
+          <p>See whether an email address is already a lead in V4 Contacts, with its live status and next action.</p>
+        </div>
+        <span class="install-link">Install &amp; setup <span aria-hidden="true">→</span></span>
+      </a>
+    </nav>
+    <p class="hub-note">Both plugins are internal add-ons. Each installation page includes the one-time setup steps. Once installed, updates are automatic.</p>
+    <footer class="hub-footer">
+      <strong>OmniScriptum S.R.L.</strong><br>
+      120 High Road, East Finchley · London, N2 9ED · United Kingdom
     </footer>
-  </div>
+  </main>
 </body>
 </html>
