@@ -3,6 +3,16 @@
     "omnireply@omniscriptum.com": {
       "updates": [
         {
+          "version": "4.0.187",
+          "update_link": "https://davidbenwow.github.io/omnireply-updates/omnireply-4.0.187.xpi",
+          "update_hash": "sha256:4987e0986c32700ee401bcefcb03cf623f8898bfdebb515fe0342fca7dbd89b0",
+          "applications": {
+            "gecko": {
+              "strict_min_version": "140.0"
+            }
+          }
+        },
+        {
           "version": "4.0.171",
           "update_link": "https://davidbenwow.github.io/omnireply-updates/omnireply-4.0.171.xpi",
           "update_hash": "sha256:42a6164ca41025a7dab710b8d0303d838e369419d6f8a0c38973f4c951a8f7b8",

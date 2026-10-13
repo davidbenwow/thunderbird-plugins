@@ -14,7 +14,7 @@
       <p class="tagline">Generates draft email replies with AI right inside Thunderbird, using your
         V4 account and your Cover Playground links.</p>
       <a class="dl-btn" id="dl" href="omnireply-latest.xpi" download>Download latest</a>
-      <div class="ver">Current version: <span id="ver">latest</span></div>
+      <div class="ver">Current version: <span id="ver">v4.0.187</span></div>
       <div class="save-note">Tip: <em>save</em> the file — don't open it in the browser.</div>
     </div>
 
@@ -26,7 +26,7 @@
         <div><h3>Download the add-on</h3></div>
       </div>
       <div class="step-body">
-        <p>Click <strong>Download latest</strong> above and save <code>omnireply-latest.xpi</code>
+        <p>Click <strong>Download latest</strong> above and save the downloaded <code>.xpi</code> file
           somewhere you can find it (e.g. Downloads). Requires <strong>Thunderbird 140 or newer</strong>.</p>
       </div>
     </div>
@@ -141,7 +141,8 @@
     <div class="auto">
       <strong>That's it.</strong> Open an email in Thunderbird and click <strong><span style="font-weight:400;white-space:nowrap"><b style="font-weight:700">OMNI</b>Reply</span></strong> to
       draft a reply — always read it before sending, especially when it includes links, names, prices,
-      or imprint details. New versions install automatically; you won't need this page again.
+      or imprint details. Thunderbird checks for updates automatically. If it does not offer an
+      update, return here to download the latest version and install it over the existing add-on.
     </div>
 
     <footer>
@@ -151,11 +152,15 @@
   </div>
 
   <script>
-    fetch('updates.json')
-      .then(function (r) { return r.json(); })
+    fetch('https://davidbenwow.github.io/omnireply-updates/updates.json', { cache: 'no-store' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('Update information unavailable');
+        return r.json();
+      })
       .then(function (d) {
         var u = d.addons['omnireply@omniscriptum.com'].updates[0];
         document.getElementById('ver').textContent = 'v' + u.version;
+        document.getElementById('dl').href = u.update_link;
       })
       .catch(function () {
         document.getElementById('ver').textContent = 'see version history';
